@@ -1,10 +1,21 @@
 package com.techexample.example01.view;
 
+import static com.techexample.example01.model.State.DISABLED;
+import static com.techexample.example01.model.State.READY;
+import static java.util.Objects.requireNonNull;
+
+import java.io.IOException;
+import java.net.URL;
+import java.util.Comparator;
+
+import javax.inject.Inject;
+
+import org.reactfx.EventStreams;
+
 import com.techexample.example01.controller.AppController;
 import com.techexample.example01.model.AppModel;
 import com.techexample.example01.model.Currency;
 import javafx.application.Platform;
-import javafx.beans.binding.Bindings;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.collections.ListChangeListener;
@@ -20,16 +31,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextField;
-import org.reactfx.EventStreams;
-
-import javax.inject.Inject;
-import java.io.IOException;
-import java.net.URL;
-import java.util.Comparator;
-
-import static com.techexample.example01.model.State.DISABLED;
-import static com.techexample.example01.model.State.READY;
-import static java.util.Objects.requireNonNull;
 
 /**
  * JavaFX View part of application
