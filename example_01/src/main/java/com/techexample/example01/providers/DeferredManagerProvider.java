@@ -9,7 +9,7 @@ import org.jdeferred.DeferredManager;
 import org.jdeferred.impl.DefaultDeferredManager;
 
 /**
- * Deferred manager Provider
+ * Deferred manager Guice provider
  */
 public class DeferredManagerProvider implements Provider<DeferredManager> {
     @Inject

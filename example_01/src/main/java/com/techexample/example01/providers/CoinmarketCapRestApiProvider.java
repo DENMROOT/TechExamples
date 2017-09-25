@@ -12,7 +12,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.jackson.JacksonConverterFactory;
 
 /**
- * Created by Denys_Makarov on 9/22/2017.
+ * REST Api Guice provider
  */
 public class CoinmarketCapRestApiProvider implements Provider<CoinmarketCapRestApi> {
 

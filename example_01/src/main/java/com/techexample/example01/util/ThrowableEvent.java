@@ -4,7 +4,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 /**
- * Created by Denys_Makarov on 9/22/2017.
+ * Throwable event class
  */
 @Data
 @EqualsAndHashCode(callSuper = true)

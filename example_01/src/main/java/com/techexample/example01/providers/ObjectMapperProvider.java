@@ -6,7 +6,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.techexample.example01.model.Currency;
 
 /**
- * ObjectMapper Provider
+ * ObjectMapper Guice provider
  */
 public class ObjectMapperProvider implements Provider<ObjectMapper> {
     @Override

@@ -10,7 +10,7 @@ import com.techexample.example01.util.ApplicationEventBus;
 import com.techexample.example01.util.ThrowableEvent;
 
 /**
- * Created by Denys_Makarov on 9/22/2017.
+ * Application controller
  */
 public class AppController {
     @Inject

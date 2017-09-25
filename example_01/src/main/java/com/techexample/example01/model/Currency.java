@@ -7,7 +7,7 @@ import lombok.Data;
 import lombok.Setter;
 
 /**
- * Currency
+ * Currency class
  */
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -19,7 +19,7 @@ public class Currency implements Comparable<Currency> {
 
     private String symbol;
 
-    private String rank;
+    private Integer rank;
 
     @Setter(onMethod = @__({@JsonProperty("price_usd")}))
     private Double priceUsd;
@@ -52,7 +52,7 @@ public class Currency implements Comparable<Currency> {
     private Long lastUpdated;
 
     @Builder
-    public static Currency build(String id, String name, String symbol, String rank) {
+    public static Currency build(String id, String name, String symbol, int rank) {
         Currency currency = new Currency();
         currency.id = id;
         currency.name = name;
@@ -84,7 +84,9 @@ public class Currency implements Comparable<Currency> {
 
     @Override
     public int compareTo(Currency other) {
-        if (other == null) { return 1; }
+        if (other == null) {
+            return 1;
+        }
         return name.compareTo(other.name);
     }
 }

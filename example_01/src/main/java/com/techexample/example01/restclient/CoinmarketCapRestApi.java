@@ -8,7 +8,7 @@ import retrofit2.http.GET;
 import retrofit2.http.Path;
 
 /**
- * CoinmarketCap rest api
+ * CoinmarketCap REST Api
  */
 public interface CoinmarketCapRestApi {
 
@@ -16,5 +16,5 @@ public interface CoinmarketCapRestApi {
     Call<List<Currency>> getCurrencies();
 
     @GET("ticker/{id}")
-    Call<List<Currency>> getCurrencyById(@Path("id") String organization);
+    Call<List<Currency>> getCurrencyById(@Path("id") String currencyId);
 }

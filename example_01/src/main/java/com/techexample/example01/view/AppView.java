@@ -25,13 +25,14 @@ import org.reactfx.EventStreams;
 import javax.inject.Inject;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Comparator;
 
 import static com.techexample.example01.model.State.DISABLED;
 import static com.techexample.example01.model.State.READY;
 import static java.util.Objects.requireNonNull;
 
 /**
- * View part of application
+ * JavaFX View part of application
  */
 public class AppView {
     @Inject
@@ -84,10 +85,13 @@ public class AppView {
                         enabled.setValue(false);
                         running.setValue(true);
                         break;
+                    default:
+                        break;
                 }
             }));
 
-        ObservableList<Currency> items = createJavaFXThreadProxyList(model.getCurrencies().sorted());
+        ObservableList<Currency> items = createJavaFXThreadProxyList(model.getCurrencies()
+            .sorted(Comparator.comparing(Currency::getRank)));
 
         currencies.setItems(items);
         EventStreams.sizeOf(items).subscribe(v -> total.setText(String.valueOf(v)));
@@ -113,6 +117,10 @@ public class AppView {
         return new JavaFXThreadProxyObservableList<>(source);
     }
 
+    /**
+     * App view model events container
+     * @param <E>
+     */
     private static class JavaFXThreadProxyObservableList<E> extends TransformationList<E, E> {
         protected JavaFXThreadProxyObservableList(ObservableList<E> source) {
             super(source);

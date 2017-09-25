@@ -17,8 +17,8 @@ import retrofit2.Response;
 /**
  * Currencies service implementation
  */
-public class CurrenciesServiceImpl implements CurrenciesService{
-    private final static Logger LOG = LoggerFactory.getLogger(CurrenciesServiceImpl.class);
+public class CurrenciesServiceImpl implements CurrenciesService {
+    private static final Logger LOG = LoggerFactory.getLogger(CurrenciesServiceImpl.class);
 
     @Inject
     private CoinmarketCapRestApi api;

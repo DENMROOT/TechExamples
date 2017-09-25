@@ -11,7 +11,7 @@ import javafx.beans.property.StringProperty;
 import javafx.collections.ObservableList;
 
 /**
- * Created by Denys_Makarov on 9/22/2017.
+ * Application model class. Holds application state.
  */
 public class AppModel {
 

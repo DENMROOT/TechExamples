@@ -14,7 +14,7 @@ import javafx.scene.control.TitledPane;
 import net.engio.mbassy.listener.Handler;
 
 /**
- * Created by Denys_Makarov on 9/22/2017.
+ * Application event handler class
  */
 public class ApplicationEventHandler {
     @Inject
