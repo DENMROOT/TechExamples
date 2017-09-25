@@ -32,10 +32,24 @@ public class CurrenciesServiceImpl implements CurrenciesService {
             Response<List<Currency>> response = api.getCurrencies().execute();
 
             if (response.isSuccessful()) {
-                LOG.info("Response to api successful, {}", response.body());
+                LOG.info("GetCurrencies() Response to api successful, {}", response.body());
                 return response.body();
             }
-            LOG.error("Response to api failed, {}", response.errorBody());
+            LOG.error("GetCurrencies() Response to api failed, {}", response.errorBody());
+            throw new IllegalStateException(response.message());
+        });
+    }
+
+    @Override
+    public Promise<Collection<Currency>, Throwable, Void> currency(String currencyId) {
+        return deferredManager.when(() -> {
+            Response<List<Currency>> response = api.getCurrencyById(currencyId).execute();
+
+            if (response.isSuccessful()) {
+                LOG.info("GetCurrency() Response to api successful, {}", response.body());
+                return response.body();
+            }
+            LOG.error("GetCurrency() Response to api failed, {}", response.errorBody());
             throw new IllegalStateException(response.message());
         });
     }

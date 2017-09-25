@@ -24,7 +24,7 @@
          xmlns:fx="http://javafx.com/fxml"
          layout="fill, wrap 2" cols="[20%, shrink 200][]"
          fx:controller="com.techexample.example01.view.AppView">
-    <Label text="Organization:"/>
+    <Label text="Currency ID:"/>
     <TextField fx:id="currency" MigPane.cc="growx, push 200"/>
 
     <Button fx:id="loadButton" styleClass="btn, btn-primary" text="Load" onAction="#load">

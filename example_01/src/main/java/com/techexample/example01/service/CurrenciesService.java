@@ -11,4 +11,6 @@ import com.techexample.example01.model.Currency;
  */
 public interface CurrenciesService {
     Promise<Collection<Currency>, Throwable, Void> currencies();
+
+    Promise<Collection<Currency>, Throwable, Void> currency(String currencyId);
 }

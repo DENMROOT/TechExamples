@@ -96,7 +96,7 @@ public class AppView {
         currencies.setItems(items);
         EventStreams.sizeOf(items).subscribe(v -> total.setText(String.valueOf(v)));
         currency.textProperty().bindBidirectional(model.currencyIdProperty());
-        loadButton.disableProperty().bind(Bindings.not(enabled));
+//        loadButton.disableProperty().bind(Bindings.not(enabled));
         progress.visibleProperty().bind(running);
 
         Scene scene = new Scene(root);
@@ -105,7 +105,11 @@ public class AppView {
     }
 
     public void load(ActionEvent event) {
-        controller.loadCurrencies();
+        if (currency.textProperty().getValueSafe().length() > 0) {
+            controller.loadCurrency(currency.textProperty().get());
+        } else {
+            controller.loadCurrencies();
+        }
     }
 
     private static boolean isBlank(String str) {

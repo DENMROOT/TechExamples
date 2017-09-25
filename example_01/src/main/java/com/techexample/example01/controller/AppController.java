@@ -27,4 +27,12 @@ public class AppController {
             .fail(throwable -> eventBus.publishAsync(new ThrowableEvent(throwable)))
             .always((state, resolved, rejected) -> model.setState(READY));
     }
+
+    public void loadCurrency(String currencyId) {
+        model.setState(RUNNING);
+        currenciesService.currency(currencyId)
+            .done(model.getCurrencies()::addAll)
+            .fail(throwable -> eventBus.publishAsync(new ThrowableEvent(throwable)))
+            .always((state, resolved, rejected) -> model.setState(READY));
+    }
 }
