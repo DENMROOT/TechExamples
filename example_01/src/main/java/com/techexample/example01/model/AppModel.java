@@ -15,7 +15,6 @@ import javafx.collections.ObservableList;
  */
 public class AppModel {
 
-    public static final String DEFAULT_CURRENCY_ID = "bitcoin";
     private final ObservableList<Currency> currencies = observableArrayList();
 
     private StringProperty currencyId;
@@ -36,7 +35,7 @@ public class AppModel {
 
     public StringProperty currencyIdProperty() {
         if (currencyId == null) {
-            currencyId = new SimpleStringProperty(this, DEFAULT_CURRENCY_ID);
+            currencyId = new SimpleStringProperty(this, "");
         }
         return currencyId;
     }

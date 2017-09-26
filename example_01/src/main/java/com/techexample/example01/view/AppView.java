@@ -107,7 +107,7 @@ public class AppView {
 
     public void load(ActionEvent event) {
         if (currency.textProperty().getValueSafe().length() > 0) {
-            controller.loadCurrency(currency.textProperty().get());
+            controller.loadCurrency(model.getCurrencyId());
         } else {
             controller.loadCurrencies();
         }
