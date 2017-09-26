@@ -6,27 +6,33 @@ import java.util.concurrent.Executors;
 import org.jdeferred.DeferredManager;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.inject.AbstractModule;
 import com.google.inject.Singleton;
 import com.techexample.example01.controller.AppController;
 import com.techexample.example01.model.AppModel;
-import com.techexample.example01.restclient.CoinmarketCapRestApi;
 import com.techexample.example01.providers.CoinmarketCapRestApiProvider;
-import com.techexample.example01.service.CurrenciesService;
-import com.techexample.example01.service.impl.CurrenciesServiceImpl;
 import com.techexample.example01.providers.DeferredManagerProvider;
 import com.techexample.example01.providers.ObjectMapperProvider;
+import com.techexample.example01.restclient.CoinmarketCapRestApi;
+import com.techexample.example01.service.CurrenciesService;
+import com.techexample.example01.service.impl.CurrenciesServiceImpl;
 import com.techexample.example01.util.ApplicationEventBus;
 import com.techexample.example01.util.ApplicationEventHandler;
 import com.techexample.example01.view.AppView;
+import ru.vyarus.guice.ext.ExtAnnotationsModule;
 
 /**
  * Google guice configuration module
  */
-public class AppModule extends AbstractModule {
+public class AppModule extends ExtAnnotationsModule {
+
+    public AppModule() {
+        super(AppModule.class.getPackage().getName());
+    }
 
     @Override
     protected final void configure() {
+        super.configure();
+
         bindExecutorService();
         bindDeferredManager();
         bindCurrenciesService();

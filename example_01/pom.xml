@@ -27,6 +27,12 @@
             <version>${guice.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>ru.vyarus</groupId>
+            <artifactId>guice-ext-annotations</artifactId>
+            <version>1.1.1</version>
+        </dependency>
+
         <!--lombok-->
         <dependency>
             <groupId>org.projectlombok</groupId>

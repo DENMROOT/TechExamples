@@ -6,17 +6,24 @@ import java.io.PrintStream;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
+import org.slf4j.Logger;
+
 import com.google.inject.Inject;
 import javafx.application.Platform;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TitledPane;
 import net.engio.mbassy.listener.Handler;
+import net.engio.mbassy.listener.Listener;
+import net.engio.mbassy.listener.References;
 
 /**
  * Application event handler class
  */
+@Listener(references = References.Strong)
 public class ApplicationEventHandler {
+    private static final Logger LOG = org.slf4j.LoggerFactory.getLogger(ApplicationEventHandler.class);
+
     @Inject
     private ApplicationEventBus eventBus;
 
@@ -32,6 +39,8 @@ public class ApplicationEventHandler {
 
     @Handler
     public void handleThrowable(ThrowableEvent event) {
+        LOG.error("Handling error event {}", event);
+
         Platform.runLater(() -> {
             TitledPane pane = new TitledPane();
             pane.setId("stacktrace");
